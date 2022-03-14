@@ -1,10 +1,9 @@
 package com.example.hw10_3
 
 import android.os.Bundle
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.example.hw10_3.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -31,5 +30,6 @@ class HomeFragment : Fragment() {
 
 
     }
+
 
 }

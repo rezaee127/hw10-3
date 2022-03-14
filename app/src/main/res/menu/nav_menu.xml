@@ -16,6 +16,7 @@
         android:icon="@drawable/ic_baseline_settings_24"/>
 
     <item android:title="Exit"
+        android:onClick="onNavigationItemSelected"
         android:id="@+id/exit"
         android:icon="@drawable/ic_baseline_transit_enterexit_24"/>
 </menu>
