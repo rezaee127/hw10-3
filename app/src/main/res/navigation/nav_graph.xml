@@ -6,28 +6,25 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.example.hw10_3.DetailFragment"
-        android:label="Detail"
-        tools:layout="@layout/fragment_detail" />
-    <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.hw10_3.HomeFragment"
-        android:label="Home"
+        android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
 
-        <action
-            android:id="@+id/action_homeFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.hw10_3.ProfileFragment"
-        android:label="Profile"
+        android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.example.hw10_3.SettingFragment"
-        android:label="Setting"
+        android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.hw10_3.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
 </navigation>

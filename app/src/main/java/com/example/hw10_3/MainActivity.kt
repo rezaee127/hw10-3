@@ -25,21 +25,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
 
-        setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+       val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
         navController = navHostFragment.navController
         appBarConfiguration = AppBarConfiguration(navController.graph, binding.drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
 
-
     }
 
 
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        return true
+    }
 
 
 
@@ -48,12 +50,14 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
 
     }
-    fun onNavigationItemSelected( item: MenuItem1){
-        var id = item.itemId
-        if (id==R.id.exit){
+  fun onNavigationItemSelected( item: MenuItem1){
+        if (item.itemId==R.id.exit){
             finish()
         }
     }
+
+
+
 
 
 
