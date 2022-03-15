@@ -8,23 +8,23 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.hw10_3.HomeFragment"
-        android:label="fragment_home"
+        android:label="Home"
         tools:layout="@layout/fragment_home" >
 
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.hw10_3.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.example.hw10_3.SettingFragment"
-        android:label="fragment_setting"
+        android:label="Setting"
         tools:layout="@layout/fragment_setting" />
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.hw10_3.DetailFragment"
-        android:label="fragment_detail"
+        android:label="Detail"
         tools:layout="@layout/fragment_detail" />
 </navigation>
