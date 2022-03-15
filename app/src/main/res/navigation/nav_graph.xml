@@ -24,7 +24,14 @@
         android:id="@+id/settingFragment"
         android:name="com.example.hw10_3.SettingFragment"
         android:label="Setting"
-        tools:layout="@layout/fragment_setting" />
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.hw10_3.DetailFragment"

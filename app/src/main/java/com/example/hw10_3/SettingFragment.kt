@@ -1,12 +1,19 @@
 package com.example.hw10_3
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import com.example.hw10_3.databinding.FragmentHomeBinding
 import com.example.hw10_3.databinding.FragmentSettingBinding
+
+object Storage{
+    var editFlag=false
+}
 
 class SettingFragment : Fragment() {
     lateinit var binding: FragmentSettingBinding
@@ -26,6 +33,18 @@ class SettingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
+
+        binding.buttonRegister.setOnClickListener {
+            pref.edit().clear().apply()
+            findNavController().navigate(R.id.action_settingFragment_to_profileFragment)
+        }
+
+        binding.buttonEdit.setOnClickListener {
+            Storage.editFlag=true
+            findNavController().navigate(R.id.action_settingFragment_to_profileFragment)
+        }
 
     }
 

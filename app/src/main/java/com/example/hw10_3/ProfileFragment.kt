@@ -37,21 +37,34 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
+
+
         if (pref.getString("name", "").isNullOrBlank()) {
             gone1()
-            binding.buttonRegister.setOnClickListener {
-                if (binding.editTextName.text.isNullOrBlank())
-                    binding.editTextName.error = "نام را وارد کنید"
-                else if (binding.editTextNationalCode.text.isNullOrBlank())
-                    binding.editTextNationalCode.error = "کد ملی را وارد کنید"
-                else if (binding.editTextPhone.text.isNullOrBlank())
-                    binding.editTextPhone.error = "تلفن را وارد کنید"
-                else {
-                    saveOnSharedPreferences()
-                }
-            }
+            register()
+        }else if (Storage.editFlag){
+            Storage.editFlag=false
+            gone1()
+            edit()
+            register()
         } else {
             viewInformation()
+        }
+    }
+
+
+
+    private fun register() {
+        binding.buttonRegister.setOnClickListener {
+            if (binding.editTextName.text.isNullOrBlank())
+                binding.editTextName.error = "نام را وارد کنید"
+            else if (binding.editTextNationalCode.text.isNullOrBlank())
+                binding.editTextNationalCode.error = "کد ملی را وارد کنید"
+            else if (binding.editTextPhone.text.isNullOrBlank())
+                binding.editTextPhone.error = "تلفن را وارد کنید"
+            else {
+                saveOnSharedPreferences()
+            }
         }
     }
 
@@ -110,6 +123,14 @@ class ProfileFragment : Fragment() {
         binding.textViewNationalCode.visibility = View.GONE
         binding.textViewPhone.visibility = View.GONE
 
+    }
+
+
+    private fun edit() {
+        val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
+        binding.editTextName.setText(pref.getString("name", ""))
+        binding.editTextNationalCode.setText(pref.getString("nationalCode", ""))
+        binding.editTextPhone.setText(pref.getString("phone", ""))
     }
 
 
