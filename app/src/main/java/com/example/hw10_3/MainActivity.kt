@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.share, menu)
         return true
     }
 
@@ -50,11 +52,11 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
 
     }
-  fun onNavigationItemSelected( item: MenuItem1){
+     fun onNavigationItemSelected( item: MenuItem1){
         if (item.itemId==R.id.exit){
             finish()
         }
-    }
+     }
 
 
 
