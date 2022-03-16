@@ -109,10 +109,10 @@ class SettingFragment : Fragment() {
 
     private fun exitApplication() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            activity?.finishAffinity();
+            requireActivity().finishAffinity()
         } else{
-            activity?.finish();
-            exitProcess(0);
+            requireActivity().finish()
+            exitProcess(0)
         }
     }
 }
