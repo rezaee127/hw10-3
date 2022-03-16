@@ -91,7 +91,7 @@ class ProfileFragment : Fragment() {
         visible()
 
         Glide.with(this.requireContext())
-            .load(R.drawable.m4)
+            .load(R.drawable.a1)
             .fitCenter()
             .circleCrop()
             .into(binding.imageView)

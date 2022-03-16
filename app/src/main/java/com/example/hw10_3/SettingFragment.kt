@@ -13,6 +13,7 @@ import com.example.hw10_3.databinding.FragmentSettingBinding
 
 object Storage{
     var editFlag=false
+
 }
 
 class SettingFragment : Fragment() {
@@ -36,6 +37,8 @@ class SettingFragment : Fragment() {
 
         val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
 
+        var arrayOfRadioButtons= arrayOf(binding.number1,binding.number2,binding.number3
+            ,binding.number4,binding.number5,binding.number6)
         binding.buttonRegister.setOnClickListener {
             pref.edit().clear().apply()
             findNavController().navigate(R.id.action_settingFragment_to_profileFragment)
@@ -45,6 +48,22 @@ class SettingFragment : Fragment() {
             Storage.editFlag=true
             findNavController().navigate(R.id.action_settingFragment_to_profileFragment)
         }
+
+
+            binding.buttonRegisterNumber.setOnClickListener {
+                for (i in arrayOfRadioButtons.indices){
+                    if (arrayOfRadioButtons[i].isChecked){
+                        var editor= pref.edit()
+                        editor.putInt("numberOfItem", i+1)
+                        editor.apply()
+                        findNavController().navigate(R.id.action_settingFragment_to_homeFragment)
+                    }
+
+                }
+            }
+
+
+
 
     }
 

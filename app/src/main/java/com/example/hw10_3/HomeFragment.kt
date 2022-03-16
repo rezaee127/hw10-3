@@ -1,5 +1,6 @@
 package com.example.hw10_3
 
+import android.content.Context
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -10,7 +11,7 @@ import com.example.hw10_3.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
     lateinit var binding:FragmentHomeBinding
-
+    var x=4
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +37,17 @@ class HomeFragment : Fragment() {
             binding.imageView3,binding.imageView4,binding.imageView5,binding.imageView6)
         var arrayOfTextViews= arrayOf(binding.textView1,binding.textView2,
             binding.textView3,binding.textView4,binding.textView5,binding.textView6)
+
+        val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
+
+        var y=pref.getInt("numberOfItem",-1)
+        if (y!=-1){
+            x=y
+        }
+
+        for (i in x until arrayOfConstraintLayouts.size){
+           arrayOfConstraintLayouts[i].visibility=View.GONE
+       }
 
 
         for (i in arrayOfImageViews.indices){
