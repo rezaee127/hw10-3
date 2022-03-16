@@ -1,5 +1,6 @@
 package com.example.hw10_3
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -12,6 +13,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.hw10_3.Storage.arrayOfItems
 import com.example.hw10_3.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.view.MenuItem as MenuItem1
@@ -59,7 +61,26 @@ class MainActivity : AppCompatActivity() {
      }
 
 
+    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.item_share -> {
+                share()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
+    private fun share() {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT,  arrayOfItems[Storage.indexOfDetail].description)
+            type = "text/plain"
+        }
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
+
+    }
 
 
 

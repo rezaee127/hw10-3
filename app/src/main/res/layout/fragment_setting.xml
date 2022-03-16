@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="انتخاب تم "
         android:textStyle="bold" />
 
@@ -42,14 +42,19 @@
             android:text="تم 2" />
 
     </RadioGroup>
-
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/black" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="8dp"
         android:text="چتد عکس در صفحه اصلی داشته باشیم؟"
         android:textStyle="bold" />
 
@@ -114,12 +119,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:minHeight="55dp"
+        android:minHeight="40dp"
         android:text="ثبت تعداد عکس ها"
         app:cornerRadius="30dp" />
 
     <View
-        android:id="@+id/divider"
+        android:id="@+id/divider2"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginTop="15dp"
@@ -129,8 +134,8 @@
         android:id="@+id/buttonEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:minHeight="55dp"
+        android:layout_marginTop="50dp"
+        android:minHeight="40dp"
         android:text="ویرایش مشخصات وارد شده"
         app:cornerRadius="30dp" />
 
@@ -138,8 +143,8 @@
         android:id="@+id/buttonRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:minHeight="55dp"
+        android:layout_marginTop="20dp"
+        android:minHeight="40dp"
         android:text="ورود کاربر جدید "
         app:cornerRadius="30dp" />
 

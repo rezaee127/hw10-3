@@ -53,8 +53,7 @@ class HomeFragment : Fragment() {
 
         for (i in arrayOfImageViews.indices){
             arrayOfImageViews[i].setOnClickListener {
-
-
+                Storage.indexOfDetail=i
                 val bundle=bundleOf("index" to i, "title" to arrayOfTextViews[i].text)
                 findNavController().navigate(R.id.action_homeFragment_to_detailFragment,bundle)
             }
