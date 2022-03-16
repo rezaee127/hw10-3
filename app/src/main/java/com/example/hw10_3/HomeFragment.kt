@@ -11,8 +11,6 @@ import com.example.hw10_3.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
     lateinit var binding:FragmentHomeBinding
-    var x=4
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,23 +29,26 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var arrayOfConstraintLayouts= arrayOf(binding.const1,binding.const2,binding.const3,
+        val arrayOfConstraintLayouts= arrayOf(binding.const1,binding.const2,binding.const3,
             binding.const4,binding.const5,binding.const6)
-        var arrayOfImageViews= arrayOf(binding.imageView1,binding.imageView2,
+        val arrayOfImageViews= arrayOf(binding.imageView1,binding.imageView2,
             binding.imageView3,binding.imageView4,binding.imageView5,binding.imageView6)
-        var arrayOfTextViews= arrayOf(binding.textView1,binding.textView2,
+        val arrayOfTextViews= arrayOf(binding.textView1,binding.textView2,
             binding.textView3,binding.textView4,binding.textView5,binding.textView6)
 
         val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
-
-        var y=pref.getInt("numberOfItem",-1)
+        var x=4
+        val y=pref.getInt("numberOfItem",-1)
         if (y!=-1){
             x=y
         }
-
         for (i in x until arrayOfConstraintLayouts.size){
-           arrayOfConstraintLayouts[i].visibility=View.GONE
-       }
+            arrayOfConstraintLayouts[i].visibility=View.GONE
+        }
+
+       // for (i in Storage.item until arrayOfConstraintLayouts.size){
+       //    arrayOfConstraintLayouts[i].visibility=View.GONE
+       // }
 
 
         for (i in arrayOfImageViews.indices){

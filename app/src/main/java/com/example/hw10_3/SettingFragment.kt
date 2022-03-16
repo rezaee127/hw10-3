@@ -11,10 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.hw10_3.databinding.FragmentHomeBinding
 import com.example.hw10_3.databinding.FragmentSettingBinding
 
-object Storage{
-    var editFlag=false
 
-}
 
 class SettingFragment : Fragment() {
     lateinit var binding: FragmentSettingBinding
@@ -53,6 +50,7 @@ class SettingFragment : Fragment() {
             binding.buttonRegisterNumber.setOnClickListener {
                 for (i in arrayOfRadioButtons.indices){
                     if (arrayOfRadioButtons[i].isChecked){
+                        //Storage.item=i+1
                         var editor= pref.edit()
                         editor.putInt("numberOfItem", i+1)
                         editor.apply()
