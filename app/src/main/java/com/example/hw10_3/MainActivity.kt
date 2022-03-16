@@ -1,5 +1,6 @@
 package com.example.hw10_3
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,7 +26,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        val pref = getSharedPreferences("share", Context.MODE_PRIVATE)
+        if(!pref.getString("theme", "").isNullOrBlank()){
+            if (pref.getString("theme", "")=="1"){
+                setTheme(R.style.Theme1)
+            }else if (pref.getString("theme", "")=="2"){
+                setTheme(R.style.Theme2)
+            }
+        }
 
         //setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
