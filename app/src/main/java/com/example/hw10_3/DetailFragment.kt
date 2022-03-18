@@ -12,6 +12,7 @@ class DetailFragment : Fragment() {
     lateinit var binding: FragmentDetailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -49,7 +50,7 @@ class DetailFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-  /*  override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.item_share -> {
                 share()
@@ -71,7 +72,7 @@ class DetailFragment : Fragment() {
     }
 
 
-   */
+
 
 
 }

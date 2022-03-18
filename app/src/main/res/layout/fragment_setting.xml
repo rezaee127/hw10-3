@@ -54,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="40dp"
         android:text="چتد عکس در صفحه اصلی داشته باشیم؟"
         android:textStyle="bold" />
 
@@ -114,20 +114,13 @@
             android:textSize="16sp" />
 
     </RadioGroup>
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonRegisterNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:minHeight="40dp"
-        android:text="ثبت تعداد عکس ها"
-        app:cornerRadius="30dp" />
+
 
     <View
         android:id="@+id/divider2"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="40dp"
         android:background="@color/black" />
 
     <com.google.android.material.button.MaterialButton

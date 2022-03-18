@@ -61,19 +61,25 @@ class SettingFragment : Fragment() {
         val arrayOfRadioButtons= arrayOf(binding.number1,binding.number2,binding.number3
             ,binding.number4,binding.number5,binding.number6)
 
-        binding.buttonRegisterNumber.setOnClickListener {
-            val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
-            for (i in arrayOfRadioButtons.indices){
-                if (arrayOfRadioButtons[i].isChecked){
+        val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
+        val number=pref.getInt("numberOfItem",-1)
+        for(i in arrayOfRadioButtons.indices){
+            if (i==number-1){
+                arrayOfRadioButtons[i].isChecked=true
+            }
+        }
+
+        for (i in arrayOfRadioButtons.indices){
+            arrayOfRadioButtons[i].setOnCheckedChangeListener { compoundButton, b ->
+                if(b){
                     //Storage.item=i+1
-                    var editor= pref.edit()
+                    val editor= pref.edit()
                     editor.putInt("numberOfItem", i+1)
                     editor.apply()
                     findNavController().navigate(R.id.action_settingFragment_to_homeFragment)
+                    }
                 }
-
             }
-        }
     }
 
 
@@ -90,8 +96,7 @@ class SettingFragment : Fragment() {
             if (b){
                 pref.edit().putString("theme", "1").apply()
                 val intent= Intent(activity,MainActivity::class.java)
-                exitApplication()
-                // activity?.finishAffinity()
+                requireActivity().finishAffinity()
                 startActivity(intent)
             }
         }
@@ -100,19 +105,11 @@ class SettingFragment : Fragment() {
             if (b){
                 pref.edit().putString("theme", "2").apply()
                 val intent= Intent(activity,MainActivity::class.java)
-                exitApplication()
-                // activity?.finishAffinity()
+                requireActivity().finishAffinity()
                 startActivity(intent)
             }
         }
     }
 
-    private fun exitApplication() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            requireActivity().finishAffinity()
-        } else{
-            requireActivity().finish()
-            exitProcess(0)
-        }
-    }
+
 }
