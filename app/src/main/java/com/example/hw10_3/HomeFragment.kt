@@ -36,6 +36,13 @@ class HomeFragment : Fragment() {
         val arrayOfTextViews= arrayOf(binding.textView1,binding.textView2,
             binding.textView3,binding.textView4,binding.textView5,binding.textView6)
 
+        val arrayOfStrings= arrayOf(R.string.string11,R.string.string12,
+            R.string.string13,R.string.string14,R.string.string15,R.string.string16)
+        val rand=(0..5).random()
+        //binding.button.text =getString(arrayOfStrings[rand])
+        binding.button.setText(arrayOfStrings[rand])
+
+
         val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
         var x=4
         val y=pref.getInt("numberOfItem",-1)
