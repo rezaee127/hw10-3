@@ -28,18 +28,13 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val arrayOfPictures= arrayOf(R.drawable.m1,R.drawable.m2,R.drawable.m3,
-            R.drawable.m4,R.drawable.m5,R.drawable.m6)
-
-        val arrayOfStrings= arrayOf(R.string.string1,R.string.string2,
-            R.string.string3,R.string.string4,R.string.string5,R.string.string6)
 
         if(requireArguments().getInt("index")!=-1){
             val index=requireArguments().getInt("index")
             val title=requireArguments().getString("title")
-            binding.imageView.setImageResource(arrayOfPictures[index])
+            binding.imageView.setImageResource(Storage.arrayOfItems[index].pictureId)
             binding.textViewTitle.text=title
-            binding.textViewDescription.setText(arrayOfStrings[index])
+            binding.textViewDescription.setText(Storage.arrayOfItems[index].description)
         }
 
     }

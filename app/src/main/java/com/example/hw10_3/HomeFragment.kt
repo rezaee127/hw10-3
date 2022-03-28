@@ -3,7 +3,6 @@ package com.example.hw10_3
 import android.content.Context
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -33,35 +32,33 @@ class HomeFragment : Fragment() {
             binding.const4,binding.const5,binding.const6)
         val arrayOfImageViews= arrayOf(binding.imageView1,binding.imageView2,
             binding.imageView3,binding.imageView4,binding.imageView5,binding.imageView6)
-        val arrayOfTextViews= arrayOf(binding.textView1,binding.textView2,
-            binding.textView3,binding.textView4,binding.textView5,binding.textView6)
 
-        val arrayOfStrings= arrayOf(R.string.string11,R.string.string12,
-            R.string.string13,R.string.string14,R.string.string15,R.string.string16)
-        val rand=(0..5).random()
+
+       val rand=(0..5).random()
         //binding.button.text =getString(arrayOfStrings[rand])
-        binding.button.setText(arrayOfStrings[rand])
+        binding.button.setText(Storage.arrayOfStrings[rand])
 
 
         val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
-        var x=4
+        //var x=4
         val y=pref.getInt("numberOfItem",-1)
         if (y!=-1){
-            x=y
+            //x=y
+            Storage.item=y
         }
-        for (i in x until arrayOfConstraintLayouts.size){
-            arrayOfConstraintLayouts[i].visibility=View.GONE
-        }
+        //for (i in x until arrayOfConstraintLayouts.size){
+        //    arrayOfConstraintLayouts[i].visibility=View.GONE
+        //}
 
-       // for (i in Storage.item until arrayOfConstraintLayouts.size){
-       //    arrayOfConstraintLayouts[i].visibility=View.GONE
-       // }
+        for (i in Storage.item until arrayOfConstraintLayouts.size){
+           arrayOfConstraintLayouts[i].visibility=View.GONE
+        }
 
 
         for (i in arrayOfImageViews.indices){
             arrayOfImageViews[i].setOnClickListener {
                 Storage.indexOfDetail=i
-                val bundle=bundleOf("index" to i, "title" to arrayOfTextViews[i].text)
+                val bundle=bundleOf("index" to i, "title" to Storage.arrayOfItems[i].title)
                 findNavController().navigate(R.id.action_homeFragment_to_detailFragment,bundle)
             }
         }
