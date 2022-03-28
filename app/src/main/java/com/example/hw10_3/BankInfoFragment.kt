@@ -47,7 +47,6 @@ class BankInfoFragment : Fragment() {
             Storage.editBankInfoFlag -> {
                 enter()
                 register()
-
             }
             else -> {
                 enter()
