@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     }
      fun onNavigationItemSelected( item: MenuItem1){
         if (item.itemId==R.id.exit){
-            finish()
+            finishAffinity()
         }
      }
 
