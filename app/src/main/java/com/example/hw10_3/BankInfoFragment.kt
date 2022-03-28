@@ -47,7 +47,7 @@ class BankInfoFragment : Fragment() {
             Storage.editBankInfoFlag -> {
                 enter()
                 register()
-                Storage.editBankInfoFlag=false
+
             }
             else -> {
                 enter()
@@ -68,6 +68,7 @@ class BankInfoFragment : Fragment() {
 
 
     private fun register(){
+
             binding.buttonRegister.setOnClickListener {
                 when {
                     binding.editTextUserName.text.isNullOrBlank() -> binding.editTextUserName.error = "نام کاربری را وارد کنید"
@@ -103,7 +104,7 @@ class BankInfoFragment : Fragment() {
         editor.putString("shabaNumber", shabaNumber)
         editor.apply()
         Toast.makeText(activity, "ذخیره اطلاعات انجام شد", Toast.LENGTH_LONG).show()
-
+        Storage.editBankInfoFlag=false
         enter()
     }
 
@@ -111,7 +112,8 @@ class BankInfoFragment : Fragment() {
         val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
         gone2()
         visible1()
-
+        binding.editTextUserName2.setText("")
+        binding.editTextPassword2.setText("")
         binding.buttonEnter.setOnClickListener {
             if (binding.editTextUserName2.text.toString()!=pref.getString("userName","")|| binding.editTextPassword2.text.toString()!=pref.getString("password", ""))
                 Toast.makeText(activity,"یوزر نیم یا پسورد اشتباه است", Toast.LENGTH_SHORT).show()
@@ -163,6 +165,7 @@ class BankInfoFragment : Fragment() {
 
     private fun edit() {
         gone1()
+        visible3()
         val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
         binding.editTextUserName.setText(pref.getString("userName",""))
         binding.editTextPassword.setText(pref.getString("password",""))
@@ -170,6 +173,19 @@ class BankInfoFragment : Fragment() {
         binding.editTextBankAccountNumber.setText(pref.getString("accountNumber",""))
         binding.editTextBankCardNumber.setText(pref.getString("cardNumber",""))
         binding.editTextShabaNumber.setText(pref.getString("shabaNumber",""))
+
     }
+
+    private fun visible3() {
+        binding.editTextUserName.visibility=View.VISIBLE
+        binding.editTextPassword.visibility=View.VISIBLE
+        binding.editTextRetypePassword.visibility=View.VISIBLE
+        binding.editTextBankAccountNumber.visibility=View.VISIBLE
+        binding.editTextBankCardNumber.visibility=View.VISIBLE
+        binding.editTextShabaNumber.visibility=View.VISIBLE
+        binding.buttonRegister.visibility=View.VISIBLE
+
+    }
+
 
 }
