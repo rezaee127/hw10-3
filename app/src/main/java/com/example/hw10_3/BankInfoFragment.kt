@@ -56,16 +56,6 @@ class BankInfoFragment : Fragment() {
 
 
 
-    private fun gone1() {
-        binding.editTextPassword2.visibility=View.GONE
-        binding.editTextUserName2.visibility=View.GONE
-        binding.buttonEnter.visibility=View.GONE
-        binding.textViewAccountNumber.visibility=View.GONE
-        binding.textViewCardNumber.visibility=View.GONE
-        binding.textViewShabaNumber.visibility=View.GONE
-    }
-
-
     private fun register(){
 
             binding.buttonRegister.setOnClickListener {
@@ -123,45 +113,6 @@ class BankInfoFragment : Fragment() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun showInfo() {
-        val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
-        visible2()
-
-        binding.textViewAccountNumber.text="شماره حساب : ${pref.getString("accountNumber", "")}"
-        binding.textViewCardNumber.text="شماره کارت : ${pref.getString("cardNumber", "")}"
-        binding.textViewShabaNumber.text="شماره شبا : ${pref.getString("shabaNumber", "")}"
-
-    }
-
-
-    private fun visible2() {
-        binding.editTextUserName2.visibility=View.GONE
-        binding.editTextPassword2.visibility=View.GONE
-        binding.buttonEnter.visibility=View.GONE
-
-        binding.textViewAccountNumber.visibility=View.VISIBLE
-        binding.textViewCardNumber.visibility=View.VISIBLE
-        binding.textViewShabaNumber.visibility=View.VISIBLE
-    }
-
-    private fun gone2() {
-        binding.editTextUserName.visibility=View.GONE
-        binding.editTextPassword.visibility=View.GONE
-        binding.editTextRetypePassword.visibility=View.GONE
-        binding.editTextBankAccountNumber.visibility=View.GONE
-        binding.editTextBankCardNumber.visibility=View.GONE
-        binding.editTextShabaNumber.visibility=View.GONE
-        binding.buttonRegister.visibility=View.GONE
-
-    }
-
-    private fun visible1() {
-        binding.editTextUserName2.visibility=View.VISIBLE
-        binding.editTextPassword2.visibility=View.VISIBLE
-        binding.buttonEnter.visibility=View.VISIBLE
-    }
-
     private fun edit() {
         gone1()
         visible3()
@@ -174,6 +125,57 @@ class BankInfoFragment : Fragment() {
         binding.editTextShabaNumber.setText(pref.getString("shabaNumber",""))
 
     }
+
+    @SuppressLint("SetTextI18n")
+    private fun showInfo() {
+        val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
+        visible2()
+
+        binding.textViewAccountNumber.text="شماره حساب : ${pref.getString("accountNumber", "")}"
+        binding.textViewCardNumber.text="شماره کارت : ${pref.getString("cardNumber", "")}"
+        binding.textViewShabaNumber.text="شماره شبا : ${pref.getString("shabaNumber", "")}"
+
+    }
+
+
+
+    private fun gone1() {
+        binding.editTextPassword2.visibility=View.GONE
+        binding.editTextUserName2.visibility=View.GONE
+        binding.buttonEnter.visibility=View.GONE
+        binding.textViewAccountNumber.visibility=View.GONE
+        binding.textViewCardNumber.visibility=View.GONE
+        binding.textViewShabaNumber.visibility=View.GONE
+    }
+
+    private fun visible1() {
+        binding.editTextUserName2.visibility=View.VISIBLE
+        binding.editTextPassword2.visibility=View.VISIBLE
+        binding.buttonEnter.visibility=View.VISIBLE
+    }
+
+
+    private fun gone2() {
+        binding.editTextUserName.visibility=View.GONE
+        binding.editTextPassword.visibility=View.GONE
+        binding.editTextRetypePassword.visibility=View.GONE
+        binding.editTextBankAccountNumber.visibility=View.GONE
+        binding.editTextBankCardNumber.visibility=View.GONE
+        binding.editTextShabaNumber.visibility=View.GONE
+        binding.buttonRegister.visibility=View.GONE
+
+    }
+
+    private fun visible2() {
+        binding.editTextUserName2.visibility=View.GONE
+        binding.editTextPassword2.visibility=View.GONE
+        binding.buttonEnter.visibility=View.GONE
+
+        binding.textViewAccountNumber.visibility=View.VISIBLE
+        binding.textViewCardNumber.visibility=View.VISIBLE
+        binding.textViewShabaNumber.visibility=View.VISIBLE
+    }
+
 
     private fun visible3() {
         binding.editTextUserName.visibility=View.VISIBLE
