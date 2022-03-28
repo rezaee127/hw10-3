@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.hw10_3.databinding.FragmentProfileBinding
 
@@ -25,7 +26,7 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
         // Inflate the layout for this fragment
@@ -100,6 +101,25 @@ class ProfileFragment : Fragment() {
         binding.textViewNationalCode.text = "کد ملی : ${pref.getString("nationalCode", "")}"
         binding.textViewPhone.text = "تلفن : ${pref.getString("phone", "")}"
 
+
+       goToBankInfoFragment()
+}
+
+
+    private fun goToBankInfoFragment() {
+        val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
+        if (pref.getString("userName","").isNullOrBlank()){
+            binding.goToBankInfoFragmentButton.text="وارد کردن اطلاعات بانکی"
+            binding.goToBankInfoFragmentButton.setOnClickListener {
+                findNavController().navigate(R.id.action_profileFragment_to_bankInfoFragment)
+            }
+        }else {
+            binding.goToBankInfoFragmentButton.text="مشاهده اطلاعات بانکی"
+            binding.goToBankInfoFragmentButton.setOnClickListener {
+                findNavController().navigate(R.id.action_profileFragment_to_bankInfoFragment)
+            }
+
+        }
     }
 
     private fun visible() {
@@ -107,6 +127,7 @@ class ProfileFragment : Fragment() {
         binding.textViewName.visibility = View.VISIBLE
         binding.textViewNationalCode.visibility = View.VISIBLE
         binding.textViewPhone.visibility = View.VISIBLE
+        binding.goToBankInfoFragmentButton.visibility = View.VISIBLE
     }
 
     private fun gone2() {
@@ -122,6 +143,7 @@ class ProfileFragment : Fragment() {
         binding.textViewName.visibility = View.GONE
         binding.textViewNationalCode.visibility = View.GONE
         binding.textViewPhone.visibility = View.GONE
+        binding.goToBankInfoFragmentButton.visibility  = View.GONE
 
     }
 

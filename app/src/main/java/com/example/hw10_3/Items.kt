@@ -1,14 +1,13 @@
 package com.example.hw10_3
 
-import androidx.core.content.res.TypedArrayUtils.getString
+
+data class Items(var id:Int,var pictureId:Int,var title:String,var description:String)
 
 
-data class Items(var id:Int,var pictureId:Int,var title:String,var description:String) {
-
-}
 
 object Storage{
     var editFlag=false
+    var editBankInfoFlag=false
     var indexOfDetail=0
     //var item=4
     var arrayOfItems=arrayOf(

@@ -30,6 +30,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:letterSpacing="0.0"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="10dp"
+        android:lineSpacingExtra="8sp"
         android:gravity="center"
         android:text="" />
 

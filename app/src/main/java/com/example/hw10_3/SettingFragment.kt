@@ -51,7 +51,10 @@ class SettingFragment : Fragment() {
             findNavController().navigate(R.id.action_settingFragment_to_profileFragment)
         }
 
-
+        binding.buttonEditBankInfo.setOnClickListener {
+            Storage.editBankInfoFlag=true
+            findNavController().navigate(R.id.action_settingFragment_to_bankInfoFragment)
+        }
 
 
     }
