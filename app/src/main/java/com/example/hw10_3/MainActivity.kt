@@ -26,11 +26,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val pref = getSharedPreferences("share", Context.MODE_PRIVATE)
-        if(!pref.getString("theme", "").isNullOrBlank()){
-            if (pref.getString("theme", "")=="1"){
+        val pref2 = getSharedPreferences("share2", Context.MODE_PRIVATE)
+        if(!pref2.getString("theme", "").isNullOrBlank()){
+            if (pref2.getString("theme", "")=="1"){
                 setTheme(R.style.Theme1)
-            }else if (pref.getString("theme", "")=="2"){
+            }else if (pref2.getString("theme", "")=="2"){
                 setTheme(R.style.Theme2)
             }
         }

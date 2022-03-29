@@ -36,9 +36,9 @@ class HomeFragment : Fragment() {
         val arrayOfTextViews= arrayOf(binding.textView1,binding.textView2,
             binding.textView3,binding.textView4,binding.textView5,binding.textView6)
 
-        val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
+        val pref2 = requireActivity().getSharedPreferences("share2", Context.MODE_PRIVATE)
         var x=4
-        val y=pref.getInt("numberOfItem",-1)
+        val y=pref2.getInt("numberOfItem",-1)
         if (y!=-1){
             x=y
         }
