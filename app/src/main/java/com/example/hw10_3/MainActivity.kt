@@ -39,9 +39,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-       val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
         navController = navHostFragment.navController
-        appBarConfiguration = AppBarConfiguration(navController.graph, binding.drawerLayout)
+
+        //appBarConfiguration = AppBarConfiguration(navController.graph, binding.drawerLayout)
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment,
+            R.id.profileFragment,R.id.settingFragment), binding.drawerLayout)
+
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
 
