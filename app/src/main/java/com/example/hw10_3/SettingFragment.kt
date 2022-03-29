@@ -60,8 +60,8 @@ class SettingFragment : Fragment() {
         val arrayOfRadioButtons= arrayOf(binding.number1,binding.number2,binding.number3
             ,binding.number4,binding.number5,binding.number6)
 
-        val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
-        val number=pref.getInt("numberOfItem",-1)
+        val pref2 = requireActivity().getSharedPreferences("share2", Context.MODE_PRIVATE)
+        val number=pref2.getInt("numberOfItem",-1)
         for(i in arrayOfRadioButtons.indices){
             if (i==number-1){
                 arrayOfRadioButtons[i].isChecked=true
@@ -72,7 +72,7 @@ class SettingFragment : Fragment() {
             arrayOfRadioButtons[i].setOnCheckedChangeListener { compoundButton, b ->
                 if(b){
                     //Storage.item=i+1
-                    val editor= pref.edit()
+                    val editor= pref2.edit()
                     editor.putInt("numberOfItem", i+1)
                     editor.apply()
                     findNavController().navigate(R.id.action_settingFragment_to_homeFragment)
@@ -83,8 +83,8 @@ class SettingFragment : Fragment() {
 
 
     private fun changeTheme() {
-        val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
-        val s= pref.getString("theme", "")
+        val pref2 = requireActivity().getSharedPreferences("share2", Context.MODE_PRIVATE)
+        val s= pref2.getString("theme", "")
         if (s=="1"){
             binding.theme1.isChecked=true
         }else if (s=="2"){
@@ -93,7 +93,7 @@ class SettingFragment : Fragment() {
 
         binding.theme1.setOnCheckedChangeListener { compoundButton, b ->
             if (b){
-                pref.edit().putString("theme", "1").apply()
+                pref2.edit().putString("theme", "1").apply()
                 val intent= Intent(activity,MainActivity::class.java)
                 requireActivity().finishAffinity()
                 startActivity(intent)
@@ -102,7 +102,7 @@ class SettingFragment : Fragment() {
 
         binding.theme2.setOnCheckedChangeListener { compoundButton, b ->
             if (b){
-                pref.edit().putString("theme", "2").apply()
+                pref2.edit().putString("theme", "2").apply()
                 val intent= Intent(activity,MainActivity::class.java)
                 requireActivity().finishAffinity()
                 startActivity(intent)
