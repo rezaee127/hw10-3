@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         //appBarConfiguration = AppBarConfiguration(navController.graph, binding.drawerLayout)
         appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment,
-            R.id.profileFragment,R.id.settingFragment), binding.drawerLayout)
+           R.id.settingFragment), binding.drawerLayout)
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
