@@ -106,10 +106,15 @@ class BankInfoFragment : Fragment() {
         binding.buttonEnter.setOnClickListener {
             if (binding.editTextUserName2.text.toString()!=pref.getString("userName","")|| binding.editTextPassword2.text.toString()!=pref.getString("password", ""))
                 Toast.makeText(activity,"یوزر نیم یا پسورد اشتباه است", Toast.LENGTH_SHORT).show()
-            else if(Storage.editBankInfoFlag){
-                edit()
-            }else
-                showInfo()
+            else {
+                Storage.hideInfoFlag=pref.getBoolean("hideBankInfo", false)
+                if (Storage.hideInfoFlag) {
+                    Toast.makeText(requireContext(), "متاسفانه نمیتوان اطلاعات را نمایش داد", Toast.LENGTH_LONG).show()
+                } else if (Storage.editBankInfoFlag) {
+                    edit()
+                } else
+                    showInfo()
+            }
         }
     }
 
@@ -123,7 +128,7 @@ class BankInfoFragment : Fragment() {
         binding.editTextBankAccountNumber.setText(pref.getString("accountNumber",""))
         binding.editTextBankCardNumber.setText(pref.getString("cardNumber",""))
         binding.editTextShabaNumber.setText(pref.getString("shabaNumber",""))
-
+        Storage.editBankInfoFlag=false
     }
 
     @SuppressLint("SetTextI18n")

@@ -31,13 +31,15 @@ class SettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
-
         changeTheme()
 
         changeNumberOfItemInHome()
 
+        hideBankInfo()
+
+
         binding.buttonRegister.setOnClickListener {
+            val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
             pref.edit().clear().apply()
             findNavController().navigate(R.id.action_settingFragment_to_profileFragment)
         }
@@ -53,6 +55,19 @@ class SettingFragment : Fragment() {
         }
 
 
+    }
+
+    private fun hideBankInfo() {
+        val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
+        Storage.hideInfoFlag=pref.getBoolean("hideBankInfo", false)
+        if (Storage.hideInfoFlag){
+            binding.checkBox.isChecked=true
+        }
+        binding.checkBox.setOnCheckedChangeListener { compoundButton, b ->
+            val edit=pref.edit()
+            edit.putBoolean("hideBankInfo",b)
+            edit.apply()
+        }
     }
 
 

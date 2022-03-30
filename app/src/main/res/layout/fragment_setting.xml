@@ -50,7 +50,7 @@
             android:id="@+id/divider1"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:background="@color/black" />
 
         <TextView
@@ -124,14 +124,30 @@
             android:id="@+id/divider2"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:background="@color/black" />
+
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layoutDirection="rtl"
+            android:text="اطلاعات بانکی نمایش داده نشود" />
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/black" />
+
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             android:minHeight="40dp"
             android:text="ویرایش پروفایل"
             app:cornerRadius="30dp" />
@@ -154,6 +170,8 @@
             android:layout_marginBottom="30dp"
             android:text="ورود کاربر جدید "
             app:cornerRadius="30dp" />
+
+
 
 
     </LinearLayout>
