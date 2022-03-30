@@ -143,7 +143,6 @@ class BankInfoFragment : Fragment() {
     }
 
 
-
     private fun gone1() {
         binding.editTextPassword2.visibility=View.GONE
         binding.editTextUserName2.visibility=View.GONE
