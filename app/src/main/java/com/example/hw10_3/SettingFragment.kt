@@ -59,14 +59,11 @@ class SettingFragment : Fragment() {
 
     private fun hideBankInfo() {
         val pref = requireActivity().getSharedPreferences("share", Context.MODE_PRIVATE)
-        Storage.hideInfoFlag=pref.getBoolean("hideBankInfo", false)
-        if (Storage.hideInfoFlag){
+        if (pref.getBoolean("hideBankInfo", false)){
             binding.checkBox.isChecked=true
         }
         binding.checkBox.setOnCheckedChangeListener { compoundButton, b ->
-            val edit=pref.edit()
-            edit.putBoolean("hideBankInfo",b)
-            edit.apply()
+            pref.edit().putBoolean("hideBankInfo",b).apply()
         }
     }
 

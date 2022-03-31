@@ -8,7 +8,7 @@ data class Items(var id:Int,var pictureId:Int,var title:String,var description:I
 object Storage{
     var editFlag=false
     var editBankInfoFlag=false
-    var hideInfoFlag=false
+    //var hideInfoFlag=false
     var indexOfDetail=0
     var item=4
     var arrayOfItems=arrayOf(
